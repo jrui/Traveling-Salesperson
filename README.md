@@ -1,5 +1,5 @@
 # Traveling-Salesperson
-Traveling salesperson algorithm.
+Traveling salesperson algorithm
 
 This was an attempt i made in the traveling salesperson algorithm. It uses a "brute force" approach, meaning that this will try every possible combination, until it finds the best one. It's not ideal, but it works.
 
