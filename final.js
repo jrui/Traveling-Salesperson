@@ -1,5 +1,5 @@
 var cities = [];
-var totalCities = 8;
+var totalCities = 6;
 var recordDistance;
 var best;
 var order = [];
@@ -8,9 +8,9 @@ var totalPerm;
 var count;
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(window.innerWidth - 20, window.innerHeight - 20);
   for(var i = 0; i < totalCities; i++) {
-    var v = createVector(random(width), random(height - 40) + 40);
+    var v = createVector(random(window.innerWidth - 40), random(window.innerHeight - 40));
     cities[i] = v;
     order[i] = i;
   }
@@ -26,11 +26,11 @@ function draw() {
   background(0);
   fill(255);
   for(var i = 0; i < cities.length; i++) {
-    ellipse(cities[i].x, cities[i].y, 10, 10);
+    ellipse(cities[i].x, cities[i].y, 20, 20);
   }
 
   stroke(255);
-  strokeWeight(2);
+  strokeWeight(1);
   noFill();
   beginShape();
   for(var i = 0; i < order.length; i++) {
@@ -58,8 +58,8 @@ function draw() {
   textSize(30);
   stroke(255);
   strokeWeight(1);
-  var percent = 100 * (count / totalPerm);
-  text(nf(percent, 0, 2) + "% completed", 0, 30);
+  var percent = Math.ceil(100 * (count / totalPerm));
+  text(nf(percent, 0) + "% completed", 0, 30);
 
   nextOrder();
 }
@@ -92,7 +92,7 @@ function nextOrder() {
   }
   if(largestI == -1) {
     noLoop();
-    console.log('Optimal found!');
+    window.alert('Optimal found!');
   }
 
   var largestJ = -1;
